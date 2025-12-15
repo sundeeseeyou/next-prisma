@@ -1,15 +1,14 @@
-"use client";
-
 export default function NewHartPage() {
-  function addHart(formData: FormData) {
+  async function addHart(formData: FormData) {
+    "use server";
     const content = formData.get("content") as string;
     const image = formData.get("image") as string;
 
     console.log(content, image);
   }
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen">
-      <h1>Create New Curhart</h1>
+    <div className="flex flex-col items-center justify-start p-16 min-w-screen min-h-screen bg-black">
+      <h1 className="text-4xl font-bold">Create New Curhart</h1>
       <form action={addHart}>
         <fieldset>
           <legend>New Hart Form</legend>
@@ -20,7 +19,6 @@ export default function NewHartPage() {
             rows={4}
           />
           <div>
-            <label htmlFor="image">Image:</label>
             <input
               type="file"
               accept="image/png, image/jpeg, image/jpg"
