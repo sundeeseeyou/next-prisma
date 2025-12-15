@@ -1,30 +1,32 @@
 "use client";
 
 export default function NewHartPage() {
+  function addHart(formData: FormData) {
+    const content = formData.get("content") as string;
+    const image = formData.get("image") as string;
+
+    console.log(content, image);
+  }
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen">
       <h1>Create New Curhart</h1>
-      <form>
+      <form action={addHart}>
         <fieldset>
           <legend>New Hart Form</legend>
-
+          <textarea
+            id="content"
+            name="content"
+            placeholder="Share your Curhart ♡ here ..."
+            rows={4}
+          />
           <div>
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="image">Image:</label>
             <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Enter your name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="message">Message:</label>
-            <textarea
-              id="message"
-              name="message"
-              placeholder="Enter your message"
-              rows={4}
+              type="file"
+              accept="image/png, image/jpeg, image/jpg"
+              id="image"
+              name="image"
+              placeholder="Upload your image ... "
             />
           </div>
 
