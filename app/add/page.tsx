@@ -1,3 +1,5 @@
+import FormButton from "@/components/FormButton";
+
 export default function NewHartPage() {
   async function addHart(formData: FormData) {
     "use server";
@@ -28,7 +30,7 @@ export default function NewHartPage() {
             />
           </div>
 
-          <button type="submit">Submit</button>
+          <FormButton />
         </fieldset>
       </form>
     </div>
